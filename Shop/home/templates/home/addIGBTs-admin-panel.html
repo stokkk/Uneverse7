@@ -1,0 +1,11 @@
+{% include 'home/base.html' %}
+
+{% if error_msg %}
+<h3>{{error_msg}}</h3>
+{% endif %}
+    
+<h1><strong>IGBTs</strong></h1>
+<form action="" method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Добавить">
+</form>

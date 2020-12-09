@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!--Бутстрап 4-->
+</head>
+<body>
+    {% if user %}
+    <p>Привет: {{user.username}}</p>
+    {% endif %}
+    <a href="/register/">Зарегистирроваться</a>
+    <a href="/login/">Авторизоваться</a>
+    {% if user.is_authenticated %}
+    <a href="/logout/">Выйти</a>
+    {% endif %}
+    <h2>Товары</h2>
+    {% block products %}
+        <table border="1px">
+            <tr>
+                <td>Брэнд</td>
+                <td>Название</td>
+                <td>Описание</td>
+                <td>Цена</td>
+                <td>Цена со скидкой</td>
+                <td>Категория</td>
+                <td>Страна производства</td>
+            </tr>
+            {% for product in products %}
+                <tr>
+                    {% for item in product %}
+                        <td>{{item}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %} 
+        </table> 
+    {% endblock %}
+</body>
+</html>

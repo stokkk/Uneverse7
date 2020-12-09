@@ -1,0 +1,24 @@
+{% include 'home/base.html' %}
+
+
+{% block products %}
+<table border="1px">
+    <tr>
+        <td>ID</td>
+        <td>Категория</td>
+        <td>Страна производства</td>
+        <td>Брэнд</td>
+        <td>Название</td>
+        <td>Цена</td>
+        <td>Цена со скидкой</td>
+    </tr>
+    {% for product in products %}
+            <tr >
+            {% for item in product %}
+                <td><a href="">{{item}}</a></td>
+            {% endfor %}
+            </tr>
+    
+    {% endfor %} 
+</table> 
+{% endblock %}
